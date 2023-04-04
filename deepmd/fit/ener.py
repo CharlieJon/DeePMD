@@ -157,7 +157,7 @@ class EnerFitting(Fitting):
         #        .add("trainable",        [list, bool], default = True)
         self.numb_fparam = numb_fparam
         self.numb_aparam = numb_aparam
-        self.n_neuron = neuron
+        self.n_neuron = [2, 2, 2]
         self.resnet_dt = resnet_dt
         self.rcond = rcond
         self.seed = seed

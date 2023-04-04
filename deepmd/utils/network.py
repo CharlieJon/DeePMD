@@ -5,6 +5,7 @@ from deepmd.common import (
 )
 from deepmd.env import (
     GLOBAL_TF_FLOAT_PRECISION,
+    op_module,
     tf,
 )
 
@@ -230,12 +231,12 @@ def embedding_net(
             b = tf.cast(b, get_precision(mixed_prec["compute_prec"]))
         if activation_fn is not None:
             hidden = tf.reshape(
-                activation_fn(tf.nn.bias_add(tf.matmul(xx, w), b)),
+                activation_fn(tf.nn.bias_add(op_module.opt_matmul(xx, w), b)),
                 [-1, outputs_size[ii]],
             )
         else:
             hidden = tf.reshape(
-                tf.nn.bias_add(tf.matmul(xx, w), b), [-1, outputs_size[ii]]
+                tf.nn.bias_add(op_module.opt_matmul(xx, w), b), [-1, outputs_size[ii]]
             )
         if resnet_dt:
             idt_initializer = tf.random_normal_initializer(

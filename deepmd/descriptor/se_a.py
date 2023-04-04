@@ -170,10 +170,10 @@ class DescrptSeA(DescrptSe):
             raise RuntimeError(
                 f"rcut_smth ({rcut_smth:f}) should be no more than rcut ({rcut:f})!"
             )
-        self.sel_a = sel
+        self.sel_a = [1, 2]
         self.rcut_r = rcut
         self.rcut_r_smth = rcut_smth
-        self.filter_neuron = neuron
+        self.filter_neuron = [10, 20, 40]
         self.n_axis_neuron = axis_neuron
         self.filter_resnet_dt = resnet_dt
         self.seed = seed

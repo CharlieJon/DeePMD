@@ -37,7 +37,8 @@ file(
   neighbor_stat.cc
   unaggregated_grad.cc
   tabulate_multi_device.cc
-  prod_env_mat_multi_device.cc)
+  prod_env_mat_multi_device.cc
+  opt_matmul.cc)
 file(
   GLOB
   OP_GRADS_SRC
